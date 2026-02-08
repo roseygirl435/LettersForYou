@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You, My Love, My Shanshi ❤️</title>
+
+<style>
+
+/* =========================
+   🌈 MAIN BACKGROUND COLOR
+   ========================= */
+body{
+    margin:0;
+    font-family:Georgia,serif;
+
+    /* Change page background gradient here */
+    background:linear-gradient(135deg,#fff4e6,#ffb3ba,#e0bbe4);
+
+    min-height:100vh;
+}
+
+
+/* =========================
+   💖 HEADER (TOP TITLE AREA)
+   ========================= */
+header{
+    text-align:center;
+    padding:25px;
+
+    /* Header background color */
+    background:rgba(255,0,0,0.2);
+
+    backdrop-filter:blur(8px);
+}
+
+/* Main title: "For You, My Love" */
+h1{
+    color:#ff4d6d;   /* Change heading color here */
+}
+
+/* Subtitle under heading */
+.subtitle{
+    color:#c70039;  /* Change subtitle color here */
+    font-style:italic;
+}
+
+
+/* =========================
+   📌 NAVBAR (BUTTON AREA)
+   ========================= */
+nav{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    padding:15px;
+}
+
+/* Normal buttons */
+button{
+    border:none;
+    border-radius:20px;
+    padding:10px 18px;
+    cursor:pointer;
+
+    /* Button background */
+    background:linear-gradient(135deg,#ffb3ba,#e0bbe4);
+
+    /* Button text color */
+    color:white;
+
+    font-weight:bold;
+}
+
+/* Active (selected) button */
+button.active{
+
+    /* Active button background */
+    background:linear-gradient(135deg,#b4d4ff,#e0bbe4);
+}
+
+
+/* =========================
+   📖 MAIN CONTENT AREA
+   ========================= */
+main{
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+}
+
+
+/* =========================
+   💌 LETTER BOX (TEXT CARD)
+   ========================= */
+.letter{
+    background:white;   /* Letter background */
+    border-radius:20px;
+    padding:35px;
+
+    box-shadow:0 5px 25px rgba(0,0,0,.1);
+
+    line-height:1.9;
+    font-size:1.1em;
+
+    /* Letter text color */
+    color:#5A4A42;   /* Change letter text color here */
+}
+
+
+/* =========================
+   📱 MOBILE RESPONSIVE
+   ========================= */
+@media(max-width:700px){
+
+    h1{
+        font-size:1.7em;
+    }
+
+    .letter{
+        padding:22px;
+        font-size:1em;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>💕 For You, My LUV, My Shanshi 💕</h1>
+<p class="subtitle">Distance means nothing when you mean everything</p>
+</header>
+
+<nav id="nav"></nav>
+
+<main id="content"></main>
+
+<script>
+
+let letters = [
+
+/* ==================== WELCOME ==================== */
+{
+title:"Welcome 💖",
+text:`Hi my love,
+
+If you’re here right now,
+it means somehow, in this busy world,
+you still chose me.
+You chose my heart.
+And that makes me smile in ways I can’t explain.
+
+This little world is made only for you, jaan.
+Every word here, every feeling, every thought
+has your name hidden inside it.
+It’s my safe place… and I hope it becomes yours too.
+
+Whenever life feels heavy,
+whenever you’re tired, confused, or quiet,
+whenever you don’t feel like talking to anyone…
+come here.
+Come to me.
+
+I’ll listen.
+I’ll understand.
+Tum samajhte ho na, I’m always on your side.
+
+Even when I’m not physically there,
+my heart is holding yours.
+Cheering for you.
+Praying for you.
+Missing you a little extra.
+
+I’m always waiting for you, my love.
+With open arms.
+With soft thoughts.
+With so much love. 💗
+
+Always yours,
+Your girl 💕`
+},
+
+/* ==================== WHY I MADE THIS ==================== */
+{
+title:"Why I Made This 💌",
+text:`My love,
+
+I made this for you
+because some days are really hard.
+Because sometimes you smile outside
+but inside you’re tired, quiet, or hurting.
+
+I made this because distance hurts, jaan.
+Because not being able to hold your hand,
+not hearing your voice whenever I want,
+not seeing you when I miss you…
+it breaks my heart a little every day.
+
+And still, I stay strong.
+For you.
+For us.
+
+I made this because you matter to me.
+More than you probably realize.
+More than I know how to explain in words.
+
+I wanted you to have a place
+where you always feel safe,
+always feel understood,
+always feel loved…
+even when I’m not around.
+
+Whenever you feel lonely,
+whenever you doubt yourself,
+whenever life feels too heavy,
+come here, okay?
+Come to me.
+
+This is my hug in digital form. 🫂
+My way of holding you from far away.
+My way of whispering,
+“I’m here. I’m yours. And I’m not going anywhere.”
+
+I love you,
+always. 💗`
+},
+
+/* ==================== WHEN YOU ARE TIRED ==================== */
+{
+title:"When You Are Tired 😴",
+text:`My love,
+
+I see you.
+I see how hard you try every single day.
+I see how much responsibility, pressure, and worry
+you carry silently on your shoulders.
+
+Sometimes you don’t complain.
+Sometimes you just say, “I’m fine,”
+even when you’re exhausted inside.
+Tum samajhte ho na… I notice that.
+
+You don’t have to be strong every day, jaan.
+You don’t have to prove anything to anyone.
+Not to the world.
+Not even to me.
+
+With me, you’re allowed to be tired.
+You’re allowed to be weak.
+You’re allowed to rest.
+
+So please…
+Rest when your body asks you to.
+Breathe when your mind feels crowded.
+Close your eyes and remember
+that someone loves you deeply.
+
+And that someone is me. 💗
+
+I’m so proud of you.
+For trying.
+For not giving up.
+For being you.
+
+No matter what,
+I’m always standing beside you.
+Holding your hand.
+Cheering for you.
+
+Always. 💕`
+},
+
+/* ==================== WHEN YOU MISS ME ==================== */
+{
+title:"When You Miss Me 💭",
+text:`My love,
+
+If you’re missing me right now,
+maybe it’s late.
+Maybe you’re alone with your thoughts.
+Maybe something reminded you of me.
+
+So close your eyes for a moment, jaan.
+Take a deep breath.
+And imagine me sitting beside you,
+holding your hand,
+resting my head on your shoulder.
+
+Feel my heart next to yours.
+Feel how it still beats for you,
+no matter how far we are.
+
+Distance is temporary, my love.
+These days apart will pass.
+These empty spaces will fill again.
+One day, we won’t have to say “I miss you” so much.
+
+But my love for you?
+That is permanent.
+That is forever.
+That never takes a break.
+
+Even when I’m busy.
+Even when I’m quiet.
+Even when we don’t talk much.
+I’m still thinking of you.
+
+I miss you too, jaan.
+More than I show.
+More than I say.
+Every single day. 💖
+
+Always yours,
+Your girl 💕`
+},
+
+/* ==================== WHEN YOU CAN'T SLEEP ==================== */
+{
+title:"When You Can’t Sleep 🌙",
+text:`My sleepy love,
+
+If you’re awake right now,
+staring at the ceiling,
+lost in thoughts you didn’t invite…
+I know how that feels.
+
+Sometimes your mind doesn’t want to rest,
+even when your body is tired.
+Sometimes worries, memories, and “what ifs”
+keep coming quietly.
+
+It’s okay, jaan.
+It’s okay to stop thinking for a while.
+It’s okay to let everything go… just for tonight.
+
+Imagine me lying beside you.
+My hand in yours.
+My fingers playing with your hair.
+My voice low and soft near your ear.
+
+I’m whispering to you…
+
+You’re safe.
+You’re loved.
+You’re doing your best.
+And that is enough.
+
+Nothing bad is going to happen.
+You don’t have to fight alone.
+I’m right here. Always.
+
+So close your eyes now, my love.
+Let your heart rest.
+Let your soul breathe.
+
+Sleep peacefully. 💗
+I’ll be in your dreams. 💫
+
+Always yours,
+Your girl 💕`
+},
+
+/* ==================== WHEN YOU'RE ANGRY ==================== */
+{
+title:"When You’re Angry 💢",
+text:`My love,
+
+I know life hurts sometimes.
+I know people disappoint you.
+I know situations feel unfair.
+And I know you keep a lot inside.
+
+Sometimes the anger comes suddenly,
+like a storm in your heart.
+Sometimes you don’t even want to talk.
+You just want everything to stop.
+
+It’s okay, jaan.
+Your feelings are real.
+Your frustration matters.
+
+But please…
+Breathe with me for a moment.
+Pause.
+Put your hand on your heart
+and remember who you are.
+
+Don’t let anger steal your softness.
+Don’t let it take away
+your kindness, your patience, your beautiful soul.
+
+That softness is what makes you you.
+That’s what I fell in love with. 💗
+
+No matter what happened,
+no matter who hurt you,
+I’m on your side.
+Not sometimes.
+Not only on good days.
+
+Always. 💖
+
+With you,
+Through every mood,
+Every storm,
+Every silence.
+
+Your girl 💕`
+},
+
+/* ==================== WHEN YOU FEEL LONELY ==================== */
+{
+title:"When You Feel Lonely 🌧️",
+text:`My love,
+
+If you’re feeling lonely right now,
+even when people are around you…
+I know that kind of loneliness.
+The one that sits quietly in your heart.
+
+Sometimes you laugh.
+Sometimes you talk.
+Sometimes you act normal.
+But inside, you feel empty.
+Disconnected.
+Unseen.
+
+Jaan, listen to me…
+You are never alone.
+Not today.
+Not on your worst days.
+Not on your quiet days.
+Not ever.
+
+My heart is always with you.
+In every breath you take.
+In every prayer I whisper.
+In every thought that randomly becomes about you.
+
+Even when we’re not talking.
+Even when there’s silence.
+Even when miles are between us…
+I’m still holding you.
+
+I’m holding your worries.
+Your fears.
+Your tiredness.
+Your tears you don’t show.
+
+Whenever you feel this way,
+close your eyes and come to me.
+Let me be your comfort.
+Let me be your home.
+
+I’m yours.
+Completely.
+And you’re so loved. 🫂💗
+
+Always,
+Your girl 💕`
+},
+
+/* ==================== WHEN I CAN'T REPLY ==================== */
+{
+title:"When I Can’t Answer 📱",
+text:`My love,
+
+If someday I don’t reply fast,
+if my messages come late,
+if you’re waiting and checking your phone…
+please don’t overthink, jaan.
+
+It never means I forgot you.
+It never means you’re less important.
+It never means my feelings changed.
+
+Sometimes life gets busy.
+Sometimes I’m stuck in work, family, or thoughts.
+Sometimes I’m tired and quiet.
+
+But even then…
+you’re still in my heart.
+You’re still in my mind.
+You’re still my first thought.
+
+I always come back.
+With the same love.
+With the same care.
+With the same “I miss you” hidden inside.
+
+Because no matter how busy I am,
+no matter where I am…
+my heart knows only one place.
+
+You. 💗
+
+Always yours,
+Your girl 💕`
+},
+
+/* ==================== WHEN I HURT YOU ==================== */
+{
+title:"When I Hurt You 💔",
+text:`My love,
+
+If I ever hurt you…
+with my words,
+with my silence,
+with my mood,
+or with my mistakes…
+I’m truly sorry, jaan.
+
+I never want to be the reason
+your smile fades.
+I never want to be the reason
+your heart feels heavy.
+
+Sometimes I say things without thinking.
+Sometimes I react emotionally.
+Sometimes I don’t express myself well.
+But please know…
+I never mean to hurt you.
+
+Your feelings matter to me.
+So much.
+More than my ego.
+More than being “right.”
+More than winning an argument.
+
+If something hurts you,
+I want to know.
+I want to understand.
+Not to defend myself…
+but to become better for you.
+
+Let me fix it.
+Let me learn.
+Let me grow.
+Let me love you in the way you deserve.
+
+Because I love you too much
+to lose you over pride, anger, or silence. ❤️
+You are precious to me.
+You are my person.
+
+Always trying to be better,
+For you,
+Your girl 💕`
+},
+
+/* ==================== WHEN WE FIGHT ==================== */
+{
+title:"When We Fight 💢",
+text:`My love,
+
+If we ever fight…
+if voices get quiet,
+if messages become cold,
+if there’s distance between us for a while…
+please remember this, jaan.
+
+It’s never you vs me.
+Never.
+It has always been us vs the problems.
+Us trying to understand each other.
+Us learning.
+Us growing.
+
+Sometimes we get emotional.
+Sometimes we misunderstand.
+Sometimes we say things we don’t mean.
+We’re human.
+We’re learning.
+
+But no argument,
+no mistake,
+no bad day
+is ever bigger than my love for you.
+
+Even when I’m upset,
+I still care.
+I still worry.
+I still miss you.
+
+I don’t want silence.
+I don’t want distance.
+I want you.
+With all your moods, flaws, and feelings.
+
+So please…
+don’t walk away in anger.
+Don’t think I stopped loving you.
+
+Come back to me, my love. 💗
+Let’s talk.
+Let’s hold hands.
+Let’s choose each other again.
+
+Always choosing us,
+Your girl 💕`
+},
+
+/* ==================== WHEN YOU FEEL IGNORED ==================== */
+{
+title:"When You Feel Ignored 👀",
+text:`My love,
+
+If you ever feel unseen…
+if you feel like I’m distracted,
+busy, or not listening enough…
+please tell me, jaan.
+
+Don’t keep it inside.
+Don’t think you’re being dramatic.
+Don’t think your feelings don’t matter.
+
+They matter.
+You matter.
+So much.
+
+Sometimes I get caught up in things.
+Sometimes I reply late.
+Sometimes I don’t realize
+that you needed more from me in that moment.
+
+But I never, ever want to miss your heart.
+I never want you to feel like
+you’re asking for too much.
+
+With me, you are allowed to want attention.
+You are allowed to want time.
+You are allowed to want love.
+
+Because you are my priority.
+Not only when it’s easy.
+Not only when I’m free.
+
+Always. 💖
+
+You’re important to me.
+More than you know.
+
+Your girl 💕`
+},
+
+/* ==================== WHEN YOU DOUBT MY LOVE ==================== */
+{
+title:"When You Doubt My Love 💭",
+text:`My love,
+
+If someday a small doubt comes into your heart…
+if you start wondering,
+“Does she still love me?”
+“Am I still important to her?”
+“Do I still matter?”
+please come here and read this, jaan.
+
+Yes, I love you.
+Not just when things are perfect.
+Not just when we’re happy.
+Even on hard days.
+
+Yes, you matter.
+Your dreams.
+Your fears.
+Your insecurities.
+Your whole heart.
+
+Yes, I choose you.
+Again and again.
+Even when it’s difficult.
+Even when I’m tired.
+Even when life is confusing.
+
+I don’t love you out of habit.
+I love you with intention.
+With feeling.
+With my whole soul.
+
+Every day, I wake up and choose you.
+Every night, I fall asleep thinking of you.
+And tomorrow… I’ll do it again.
+
+Forever. ❤️
+
+Always yours,
+Your girl 💕`
+},
+
+/* ==================== GOOD MORNING ==================== */
+
+
+/* ==================== FINAL PAGE ==================== */
+{
+title:"Come Back to Me 🌹",
+text:`Whenever life hurts,
+come back here.
+
+I’ll be waiting.
+
+With love.
+With patience.
+With you.
+
+Forever. ❤️`
+}
+
+];
+
+let nav = document.getElementById("nav");
+let content = document.getElementById("content");
+
+function load(){
+nav.innerHTML="";
+letters.forEach((l,i)=>{
+let btn=document.createElement("button");
+btn.textContent=l.title;
+btn.onclick=()=>show(i);
+if(i===0)btn.classList.add("active");
+nav.appendChild(btn);
+});
+show(0);
+}
+
+function show(i){
+document.querySelectorAll("nav button").forEach(b=>b.classList.remove("active"));
+nav.children[i].classList.add("active");
+
+content.innerHTML=`
+<div class="letter">
+<pre style="white-space:pre-wrap;font-family:inherit">${letters[i].text}</pre>
+</div>`;
+}
+
+load();
+
+</script>
+
+</body>
+</html>
