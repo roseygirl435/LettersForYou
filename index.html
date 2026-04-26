@@ -10,7 +10,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 <title>For You, My Love ❤️</title>
-<h4>When you open this Lemme know Luv</h4>
 <style>
 
 /* =========================
@@ -34,11 +33,11 @@ header{
     backdrop-filter:blur(8px);
     position:relative; /* needed for button */
 }
-
 h4{
     color:white;
     font-family:'Dancing Script',cursive;
     font-size:1em;
+    margin-bottom:8px;   /* 👈 space before title */
 }
 
 h1{
@@ -148,7 +147,7 @@ main{
 }
 
     /* SIDEBAR NAV */
- @media(max-width:700px){
+@media(max-width:700px){
 
     nav{
         position:fixed;
@@ -160,11 +159,13 @@ main{
         background:#932F67;
 
         display:flex;
-        flex-direction:column;   /* 👈 force vertical */
-        flex-wrap:nowrap;        /* 👈 STOP wrapping */
+        flex-direction:column;
+        flex-wrap:nowrap;
         align-items:center;
 
         padding:80px 10px 20px 10px;
+
+        box-sizing:border-box;   /* 👈 IMPORTANT FIX */
 
         overflow-y:auto;
         overflow-x:hidden;
@@ -175,13 +176,13 @@ main{
         z-index:1500;
 
         box-shadow:5px 0 25px rgba(0,0,0,0.3);
-    }
-nav.show{
+    }nav.show{
         left:0;
     }
+
     nav button{
         width:90%;
-        flex-shrink:0;   /* 👈 prevents weird squeezing */
+        flex-shrink:0;
     }
 }
 
@@ -218,6 +219,8 @@ body.menu-open{
 <body>
 <button id="menuToggle">☰</button>
 <header>
+<h4>When you open this Lemme know Luv</h4>
+
 <h1>💌 For You, My LUV, My Shanshi 💌</h1>
 
 <p class="subtitle">Distance means nothing when you mean everything</p>
