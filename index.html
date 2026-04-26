@@ -14,54 +14,48 @@
 <style>
 
 /* =========================
-   🌈 MAIN BACKGROUND COLOR
+   🌈 MAIN BACKGROUND
    ========================= */
 body{
     margin:0;
     font-family:Georgia,serif;
-
     background:#932F67;
-
     min-height:100vh;
 }
 
 
 /* =========================
-   💖 HEADER (TOP TITLE AREA)
+   💖 HEADER
    ========================= */
 header{
     text-align:center;
     padding:25px;
-
-    /* Header background color */
     background:#932F67;
-
     backdrop-filter:blur(8px);
+    position:relative; /* needed for button */
 }
 
-   h4{
-      color : white;
-      font-family: 'Dancing Script', cursive;
+h4{
+    color:white;
+    font-family:'Dancing Script',cursive;
     font-size:1em;
-   }
-/* Main title: "For You, My Love" */
+}
+
 h1{
     color:white;
-    font-family: 'Dancing Script', cursive;
-    font-size:2.5em;   /* optional, makes it more elegant */
+    font-family:'Dancing Script',cursive;
+    font-size:2.5em;
 }
 
 .subtitle{
     color:white;
-    font-family: 'Allura', cursive;
-    font-size:1.6em;   /* optional */
+    font-family:'Allura',cursive;
+    font-size:1.6em;
 }
 
 
-
-
 /* =========================
-   📌 NAVBAR (BUTTON AREA)
+   📌 NAVBAR (DESKTOP)
    ========================= */
 nav{
     display:flex;
@@ -71,7 +65,10 @@ nav{
     padding:15px;
 }
 
-/* Normal buttons */
+
+/* =========================
+   🔘 BUTTONS
+   ========================= */
 button{
     border:none;
     border-radius:20px;
@@ -79,71 +76,150 @@ button{
     cursor:pointer;
 
     background:#F19ED2;
-       font-family: "Pacifico", cursive;
-  font-weight: 400;
-  font-style: normal;;
+    font-family:"Pacifico",cursive;
     letter-spacing:2px;
     color:white;
 }
 
-
-/* Active (selected) button */
 button.active{
-    background:#F075AE;  /* slightly darker pink for selected tab */
+    background:#F075AE;
 }
 
 
 /* =========================
-   📖 MAIN CONTENT AREA
+   📖 MAIN CONTENT
    ========================= */
 main{
     max-width:900px;
     margin:auto;
     padding:20px;
+    transition:0.3s ease;
 }
 
 
 /* =========================
-   💌 LETTER BOX (TEXT CARD)
+   💌 LETTER BOX
    ========================= */
 .letter{
-    background:white;   /* Letter background */
+    background:white;
     border-radius:20px;
     padding:35px;
-
     box-shadow:0 5px 25px rgba(0,0,0,.1);
 
     line-height:1.3;
     font-size:1.7em;
-    font-family: 'Allura', cursive;
-    /* Letter text color */
-    color:#ed3fb3;   /* Change letter text color here */
+    font-family:'Allura',cursive;
+    color:#ed3fb3;
 }
 
 
 /* =========================
-   📱 MOBILE RESPONSIVE
+   📱 MOBILE STYLES
    ========================= */
 @media(max-width:700px){
 
     h1{
         font-size:1.7em;
+        padding-left:40px; /* prevent overlap with button */
     }
 
     .letter{
         padding:22px;
         font-size:1em;
     }
+
+    /* ☰ MENU BUTTON */
+    #menuToggle{
+    display:block;
+    position:fixed;   /* 👈 IMPORTANT FIX */
+    top:15px;
+    left:15px;
+    z-index:9999;
+
+    padding:10px 14px;
+    border:none;
+    border-radius:12px;
+    background:#F19ED2;
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+}#menuToggle{
+    touch-action:manipulation;
 }
 
+    /* SIDEBAR NAV */
+ @media(max-width:700px){
+
+    nav{
+        position:fixed;
+        top:0;
+        left:-260px;
+        width:240px;
+        height:100vh;
+
+        background:#932F67;
+
+        display:flex;
+        flex-direction:column;   /* 👈 force vertical */
+        flex-wrap:nowrap;        /* 👈 STOP wrapping */
+        align-items:center;
+
+        padding:80px 10px 20px 10px;
+
+        overflow-y:auto;
+        overflow-x:hidden;
+
+        -webkit-overflow-scrolling:touch;
+
+        transition:0.3s ease;
+        z-index:1500;
+
+        box-shadow:5px 0 25px rgba(0,0,0,0.3);
+    }
+nav.show{
+        left:0;
+    }
+    nav button{
+        width:90%;
+        flex-shrink:0;   /* 👈 prevents weird squeezing */
+    }
+}
+
+    
+
+}
+
+    /* PUSH CONTENT WHEN OPEN */
+    main.shift{
+        transform:translateX(240px);
+    }
+
+nav::-webkit-scrollbar{
+    width:5px;
+}
+
+nav::-webkit-scrollbar-thumb{
+    background:#F19ED2;
+    border-radius:10px;
+}
+/* Hide on desktop ONLY */
+@media(min-width:701px){
+    #menuToggle{
+        display:none;
+    }
+}
+body.menu-open{
+    overflow:hidden;   /* 👈 prevents page from scrolling */
+}
 </style>
 
 </head>
 
 <body>
-
+<button id="menuToggle">☰</button>
 <header>
 <h1>💌 For You, My LUV, My Shanshi 💌</h1>
+
 <p class="subtitle">Distance means nothing when you mean everything</p>
 </header>
 
@@ -599,7 +675,6 @@ Forever and Ever. ❤️`
 }
 
 ];
-
 let nav = document.getElementById("nav");
 let content = document.getElementById("content");
 
@@ -616,17 +691,30 @@ show(0);
 }
 
 function show(i){
-document.querySelectorAll("nav button").forEach(b=>b.classList.remove("active"));
-nav.children[i].classList.add("active");
+    document.querySelectorAll("nav button").forEach(b=>b.classList.remove("active"));
+    nav.children[i].classList.add("active");
 
-content.innerHTML=`
-<div class="letter">
-<pre style="white-space:pre-wrap;font-family:inherit">${letters[i].text}</pre>
-</div>`;
+    content.innerHTML=`
+    <div class="letter">
+    <pre style="white-space:pre-wrap;font-family:inherit">${letters[i].text}</pre>
+    </div>`;
+
+   if(window.innerWidth <= 700){
+    nav.classList.remove("show");
+    content.classList.remove("shift");
+    document.body.classList.remove("menu-open"); // 👈 IMPORTANT
+}
 }
 
 load();
 
+let toggleBtn = document.getElementById("menuToggle");
+
+toggleBtn.onclick = () => {
+    nav.classList.toggle("show");
+    content.classList.toggle("shift");
+    document.body.classList.toggle("menu-open"); // 👈 IMPORTANT
+};
 </script>
 
 </body>
