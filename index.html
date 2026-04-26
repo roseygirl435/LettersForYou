@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💌</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Allura&display=display&family=Allura&display=swap" rel="stylesheet">
@@ -138,12 +139,15 @@ main{
     padding:10px 14px;
     border:none;
     border-radius:12px;
-    background:#F19ED2;
-    color:white;
-    font-size:22px;
-    cursor:pointer;
+    background:transparent;   /* 👈 transparent */
+    color:white;              /* icon color */
+font-size:26px;   /* size of 💕 */
+    cursor:pointer
 }#menuToggle{
     touch-action:manipulation;
+}
+   #menuToggle:active{
+    transform:scale(0.9);
 }
 
     /* SIDEBAR NAV */
@@ -156,7 +160,7 @@ main{
         width:240px;
         height:100vh;
 
-        background:#932F67;
+        background:#FF70BF;
 
         display:flex;
         flex-direction:column;
@@ -217,7 +221,7 @@ body.menu-open{
 </head>
 
 <body>
-<button id="menuToggle">☰</button>
+<button id="menuToggle">💕</button>
 <header>
 <h4>When you open this Lemme know Luv</h4>
 
